@@ -39,7 +39,13 @@ public class OrderDonutController implements Initializable {
     private TextField donutSubtotalTF;
 
     @FXML
-    private ListView<?> listViewCart, listViewFlavors;
+    private ListView<String> listViewCart, listViewFlavors;
+    private final String[] YEAST_FLAVORS = {"Plain", "Glazed", "Chocolate Iced", "Strawberry Iced", "Boston Creme", "Jelly Filled"};
+    private final String[] CAKE_FLAVORS = {"Plain", "Chocolate", "Lemon"};
+    private final String[] HOLE_FLAVORS = {"Plain", "Glazed", "Chocolate"};
+    private ObservableList<String> YEAST_FLAVOR_LIST = FXCollections.observableArrayList(YEAST_FLAVORS);
+    private ObservableList<String> CAKE_FLAVOR_LIST = FXCollections.observableArrayList(CAKE_FLAVORS);
+    private ObservableList<String> HOLE_FLAVOR_LIST = FXCollections.observableArrayList(HOLE_FLAVORS);
 
     @FXML
     private Button removeFromListButton;
@@ -74,5 +80,6 @@ public class OrderDonutController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         donutTypeCombobox.setItems(DONUT_TYPE_LIST);
         quantityCombobox.setItems(QUANTITY_LIST);
+        listViewFlavors.setItems(YEAST_FLAVOR_LIST);
     }
 }
