@@ -6,13 +6,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 
 public class OrderDonutController {
+    @FXML
+    private ImageView donutImage;
     @FXML
     private Button addToListButton, addToOrderButton;
 
     @FXML
-    private ComboBox<?> cboxDonutType, cboxQuantity;
+    private ComboBox<?> donutTypeCombobox, quantityCombobox;
 
     @FXML
     private TextField donutSubtotalTF;

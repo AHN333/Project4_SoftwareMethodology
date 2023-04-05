@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -41,10 +42,14 @@
             </Label>
             <HBox alignment="CENTER" prefHeight="120.0" prefWidth="510.0" spacing="25.0">
                <children>
-                  <RadioButton mnemonicParsing="false" text="Short" />
-                  <RadioButton mnemonicParsing="false" text="Tall" />
-                  <RadioButton mnemonicParsing="false" text="Grande" />
-                  <RadioButton mnemonicParsing="false" text="Venti" />
+                  <RadioButton fx:id="shortRB" mnemonicParsing="false" text="Short">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="sizeToggleGrp" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="tallRB" mnemonicParsing="false" text="Tall" toggleGroup="$sizeToggleGrp" />
+                  <RadioButton fx:id="grandeRB" mnemonicParsing="false" text="Grande" toggleGroup="$sizeToggleGrp" />
+                  <RadioButton fx:id="ventiRB" mnemonicParsing="false" text="Venti" toggleGroup="$sizeToggleGrp" />
                </children>
             </HBox>
             <GridPane prefHeight="236.0" prefWidth="516.0">
@@ -59,31 +64,31 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <CheckBox mnemonicParsing="false" text="Sweet Cream">
+                  <CheckBox fx:id="sweetCreamCBox" mnemonicParsing="false" text="Sweet Cream">
                      <GridPane.margin>
                         <Insets left="40.0" />
                      </GridPane.margin>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="French Vanilla" GridPane.rowIndex="1">
+                  <CheckBox fx:id="vanillaCbox" mnemonicParsing="false" text="French Vanilla" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="40.0" />
                      </GridPane.margin>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="Irish Cream" GridPane.rowIndex="2">
+                  <CheckBox fx:id="irishCbox" mnemonicParsing="false" text="Irish Cream" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets bottom="20.0" left="40.0" />
                      </GridPane.margin>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="Caramel" GridPane.columnIndex="1" />
-                  <CheckBox mnemonicParsing="false" text="Mocha" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <ComboBox maxWidth="75.0" prefWidth="150.0" GridPane.columnIndex="2" />
+                  <CheckBox fx:id="caramelCbox" mnemonicParsing="false" text="Caramel" GridPane.columnIndex="1" />
+                  <CheckBox fx:id="mochaCbox" mnemonicParsing="false" text="Mocha" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="quantityCombobox" maxWidth="75.0" prefWidth="150.0" GridPane.columnIndex="2" />
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <children>
                         <Label text="SubTotal:" />
-                        <TextField editable="false" prefHeight="25.0" prefWidth="97.0" />
+                        <TextField fx:id="subtotalTF" editable="false" prefHeight="25.0" prefWidth="97.0" />
                      </children>
                   </HBox>
-                  <Button mnemonicParsing="false" text="Add to Order" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <Button fx:id="addToOrderButton" mnemonicParsing="false" onAction="#onAddToOrderClicked" text="Add to Order" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets bottom="20.0" />
                      </GridPane.margin>
