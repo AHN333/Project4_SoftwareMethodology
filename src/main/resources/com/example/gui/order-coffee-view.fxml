@@ -81,7 +81,7 @@
                   </CheckBox>
                   <CheckBox fx:id="caramelCbox" mnemonicParsing="false" text="Caramel" GridPane.columnIndex="1" />
                   <CheckBox fx:id="mochaCbox" mnemonicParsing="false" text="Mocha" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <ComboBox fx:id="quantityCombobox" maxWidth="75.0" prefWidth="150.0" GridPane.columnIndex="2" />
+                  <ComboBox fx:id="quantityCombobox" maxWidth="94.0" prefHeight="25.0" prefWidth="94.0" promptText="Quantity" GridPane.columnIndex="2" />
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <children>
                         <Label text="SubTotal:" />
