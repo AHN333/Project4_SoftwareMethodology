@@ -18,7 +18,9 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class OrderDonutController implements Initializable {
@@ -46,6 +48,8 @@ public class OrderDonutController implements Initializable {
     private ObservableList<String> YEAST_FLAVOR_LIST = FXCollections.observableArrayList(YEAST_FLAVORS);
     private ObservableList<String> CAKE_FLAVOR_LIST = FXCollections.observableArrayList(CAKE_FLAVORS);
     private ObservableList<String> HOLE_FLAVOR_LIST = FXCollections.observableArrayList(HOLE_FLAVORS);
+    private ArrayList<String> item = new ArrayList();
+    private ObservableList<String> CART_LIST = FXCollections.observableArrayList(item);
 
     @FXML
     private Button removeFromListButton;
@@ -55,7 +59,10 @@ public class OrderDonutController implements Initializable {
     private final ObservableList<Integer> QUANTITY_LIST = FXCollections.observableArrayList(QUANTITY);
     @FXML
     void onAddToListClicked(ActionEvent event) {
-
+        String selectedItem = listViewFlavors.getSelectionModel().getSelectedItem();
+        if (selectedItem != null)
+        YEAST_FLAVOR_LIST.remove(selectedItem);
+        CART_LIST.add(selectedItem);
     }
 
     @FXML
@@ -65,7 +72,10 @@ public class OrderDonutController implements Initializable {
 
     @FXML
     void onRemoveFromListClicked(ActionEvent event) {
-
+        String selectedItem = listViewCart.getSelectionModel().getSelectedItem();
+        if (selectedItem != null)
+        YEAST_FLAVOR_LIST.add(selectedItem);
+        CART_LIST.remove(selectedItem);
     }
     @FXML
     void onBackButtonClicked(ActionEvent event) throws IOException {
@@ -81,5 +91,13 @@ public class OrderDonutController implements Initializable {
         donutTypeCombobox.setItems(DONUT_TYPE_LIST);
         quantityCombobox.setItems(QUANTITY_LIST);
         listViewFlavors.setItems(YEAST_FLAVOR_LIST);
+        listViewCart.setItems(CART_LIST);
+    }
+
+    void getSelected(ActionEvent actionEvent){
+        String selected = donutTypeCombobox.getSelectionModel().getSelectedItem().toString();
+        if (selected =="Yeast Donut"){
+            listViewFlavors.setItems(YEAST_FLAVOR_LIST);
+        }
     }
 }
