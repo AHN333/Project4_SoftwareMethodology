@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -20,16 +22,24 @@
    <top>
       <Label text="Coffee Menu" BorderPane.alignment="CENTER">
          <font>
-            <Font size="32.0" />
+            <Font size="40.0" />
          </font>
       </Label>
    </top>
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="123.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-            <Label text="Sizes" />
-            <HBox prefHeight="120.0" prefWidth="510.0">
+            <ImageView fitHeight="123.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../Desktop/pa4/coffee2.jpg" />
+               </image>
+            </ImageView>
+            <Label text="Sizes">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="120.0" prefWidth="510.0" spacing="25.0">
                <children>
                   <RadioButton mnemonicParsing="false" text="Short" />
                   <RadioButton mnemonicParsing="false" text="Tall" />
@@ -49,19 +59,35 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <CheckBox mnemonicParsing="false" text="Sweet Cream" />
-                  <CheckBox mnemonicParsing="false" text="French Vanilla" GridPane.rowIndex="1" />
-                  <CheckBox mnemonicParsing="false" text="Irish Cream" GridPane.rowIndex="2" />
+                  <CheckBox mnemonicParsing="false" text="Sweet Cream">
+                     <GridPane.margin>
+                        <Insets left="40.0" />
+                     </GridPane.margin>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false" text="French Vanilla" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="40.0" />
+                     </GridPane.margin>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false" text="Irish Cream" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="40.0" />
+                     </GridPane.margin>
+                  </CheckBox>
                   <CheckBox mnemonicParsing="false" text="Caramel" GridPane.columnIndex="1" />
                   <CheckBox mnemonicParsing="false" text="Mocha" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <ComboBox maxWidth="75.0" prefWidth="150.0" GridPane.columnIndex="2" />
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <children>
                         <Label text="SubTotal:" />
                         <TextField editable="false" prefHeight="25.0" prefWidth="97.0" />
                      </children>
                   </HBox>
-                  <Button mnemonicParsing="false" text="Add to Order" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" text="Add to Order" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" />
+                     </GridPane.margin>
+                  </Button>
                </children>
             </GridPane>
          </children>
