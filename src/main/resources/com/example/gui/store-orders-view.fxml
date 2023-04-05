@@ -48,6 +48,7 @@
       </ListView>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
          <children>
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#onBackButtonClicked" text="Back to Menu" />
             <Button fx:id="cancelOrderButton" mnemonicParsing="false" onAction="#onCancelOrderClicked" text="Cancel Order" />
             <Button fx:id="exportOrderButton" mnemonicParsing="false" onAction="#onExportOrderClicked" text="Export Order" />
          </children>

@@ -22,6 +22,7 @@ public class MainController {
     @FXML
     private ImageView basketMenuButton, coffeeMenuButton, donutMenuButton, ordersMenuButton;
 
+
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -29,24 +30,37 @@ public class MainController {
     void onBasketClick(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("order-basket-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        //stage = new Stage();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
     @FXML
-    void onCoffeeClick(ActionEvent event) {
-
+    void onCoffeeClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("order-coffee-view.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
-    void onDonutClick(ActionEvent event) {
-
+    void onDonutClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("order-donut-view.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
-    void onOrdersClick(ActionEvent event) {
-
+    void onOrdersClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("store-orders-view.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 }

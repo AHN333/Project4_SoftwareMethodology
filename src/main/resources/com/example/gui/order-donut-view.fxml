@@ -75,6 +75,11 @@
                      </children>
                   </HBox>
                   <Button fx:id="addToOrderButton" alignment="CENTER" mnemonicParsing="false" onAction="#onAddToOrderClicked" text="Add to Order" />
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#onBackButtonClicked" text="Back to Menu">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Button>
                </children>
                <opaqueInsets>
                   <Insets />

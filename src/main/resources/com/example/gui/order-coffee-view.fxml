@@ -19,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="510.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.MainController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="554.0" prefWidth="510.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.OrderCoffeeController">
    <top>
       <Label text="Coffee Menu" BorderPane.alignment="CENTER">
          <font>
@@ -93,7 +93,11 @@
                         <Insets bottom="20.0" />
                      </GridPane.margin>
                   </Button>
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#onBackButtonClicked" text="Back to Menu" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                </children>
+               <padding>
+                  <Insets bottom="30.0" />
+               </padding>
             </GridPane>
          </children>
       </VBox>
