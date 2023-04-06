@@ -75,11 +75,21 @@ public class OrderDonutController implements Initializable {
     @FXML
     void onAddToListClicked(ActionEvent event) {
         String selectedItem = listViewFlavors.getSelectionModel().getSelectedItem();
-        if (selectedItem != null)
-        YEAST_FLAVOR_LIST.remove(selectedItem);
-        CAKE_FLAVOR_LIST.remove(selectedItem);
-        HOLE_FLAVOR_LIST.remove(selectedItem);
-        CART_LIST.add(selectedItem);
+        if (selectedItem != null) {
+            if (donutTypeCombobox.getValue().equals("Yeast Donut")) {
+                listViewFlavors.setItems(YEAST_FLAVOR_LIST);
+                YEAST_FLAVOR_LIST.remove(selectedItem);
+                CART_LIST.add(selectedItem);
+            } else if ((donutTypeCombobox.getValue().equals("Cake Donut"))) {
+                listViewFlavors.setItems(CAKE_FLAVOR_LIST);
+                CAKE_FLAVOR_LIST.remove(selectedItem);
+                CART_LIST.add(selectedItem);
+            } else if ((donutTypeCombobox.getValue().equals("Donut Hole"))) {
+                listViewFlavors.setItems(HOLE_FLAVOR_LIST);
+                HOLE_FLAVOR_LIST.remove(selectedItem);
+                CART_LIST.add(selectedItem);
+            }
+        }
     }
 
     @FXML
