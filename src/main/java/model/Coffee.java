@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-public class Coffee {
+public class Coffee extends MenuItem {
     private String cupSize;
     ArrayList<String> addOns = new ArrayList<String>();
 
@@ -12,4 +12,9 @@ public class Coffee {
     }
 
 
+    @Override
+    public double itemPrice(int quantity) {
+        double price = 0;
+        return price;
+    }
 }
