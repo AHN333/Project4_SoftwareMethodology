@@ -77,6 +77,8 @@ public class OrderDonutController implements Initializable {
         String selectedItem = listViewFlavors.getSelectionModel().getSelectedItem();
         if (selectedItem != null)
         YEAST_FLAVOR_LIST.remove(selectedItem);
+        CAKE_FLAVOR_LIST.remove(selectedItem);
+        HOLE_FLAVOR_LIST.remove(selectedItem);
         CART_LIST.add(selectedItem);
     }
 
@@ -99,6 +101,8 @@ public class OrderDonutController implements Initializable {
         String selectedItem = listViewCart.getSelectionModel().getSelectedItem();
         if (selectedItem != null)
         YEAST_FLAVOR_LIST.add(selectedItem);
+        CAKE_FLAVOR_LIST.add(selectedItem);
+        HOLE_FLAVOR_LIST.add(selectedItem);
         CART_LIST.remove(selectedItem);
     }
     @FXML
