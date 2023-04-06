@@ -41,7 +41,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ComboBox fx:id="donutTypeCombobox" prefWidth="150.0" promptText="Donut Type" GridPane.halignment="CENTER" />
+            <ComboBox fx:id="donutTypeCombobox" onAction="#display" prefWidth="150.0" promptText="Donut Type" GridPane.halignment="CENTER" />
             <ImageView fx:id="donutImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
                <image>
                   <Image url="@yeastDonut.jpg" />

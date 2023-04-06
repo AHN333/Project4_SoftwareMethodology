@@ -57,9 +57,20 @@ public class OrderDonutController implements Initializable {
     private final Integer[] QUANTITY = {1,2,3,4,5,6,7,8,9,10,11,12};
     private final ObservableList<Integer> QUANTITY_LIST = FXCollections.observableArrayList(QUANTITY);
 
-    Image image = new Image(getClass().getResourceAsStream("yeastDonut.jpg"));
+    Image yeast = new Image(getClass().getResourceAsStream("yeastDonut.jpg"));
+    Image cake = new Image(getClass().getResourceAsStream("cake donut.jpg"));
+    Image hole = new Image(getClass().getResourceAsStream("donut holes.jpg"));
     public void display(){
-        donutImage.setImage(image);
+        if (donutTypeCombobox.getValue().equals("Yeast Donut")) {
+            donutImage.setImage(yeast);
+            listViewFlavors.setItems(YEAST_FLAVOR_LIST);
+        } else if ((donutTypeCombobox.getValue().equals("Cake Donut"))){
+            donutImage.setImage(cake);
+            listViewFlavors.setItems(CAKE_FLAVOR_LIST);
+        } else if ((donutTypeCombobox.getValue().equals("Donut Hole"))){
+            donutImage.setImage(hole);
+            listViewFlavors.setItems(HOLE_FLAVOR_LIST);
+        }
     }
     @FXML
     void onAddToListClicked(ActionEvent event) {
@@ -103,7 +114,6 @@ public class OrderDonutController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         donutTypeCombobox.setItems(DONUT_TYPE_LIST);
         quantityCombobox.setItems(QUANTITY_LIST);
-        listViewFlavors.setItems(YEAST_FLAVOR_LIST);
         listViewCart.setItems(CART_LIST);
     }
 
