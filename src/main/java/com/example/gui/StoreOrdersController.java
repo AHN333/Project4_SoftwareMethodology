@@ -10,8 +10,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 public class StoreOrdersController {
@@ -29,6 +31,7 @@ public class StoreOrdersController {
     @FXML
     private TextField totalTF;
 
+
     @FXML
     void onCancelOrderClicked(ActionEvent event) {
 
@@ -36,7 +39,7 @@ public class StoreOrdersController {
 
     @FXML
     void onExportOrderClicked(ActionEvent event) {
-
+        FileChooser fileChooser = new FileChooser();
     }
     @FXML
     void onBackButtonClicked(ActionEvent event) throws IOException {

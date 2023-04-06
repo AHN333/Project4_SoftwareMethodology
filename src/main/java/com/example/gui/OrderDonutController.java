@@ -75,9 +75,7 @@ public class OrderDonutController implements Initializable {
         stage.setScene(scene);
         stage.show();
 
-/*how to pass listview info between scenes?
-        OrderBasketController controller = loader.getController();
-        controller.initialize();*/
+
 
     }
 
