@@ -26,39 +26,83 @@ import java.util.ResourceBundle;
 
 import static java.lang.Math.round;
 
+/**
+ * Controller class for ordering coffee.
+ * Holds the event handlers for the Coffee Menu GUI.
+ * @author William Barrese, Andy Nguyen
+ */
 public class OrderCoffeeController implements Initializable {
+    /**
+     * JavaFX Stage sets the window
+     */
     private Stage stage;
+    /**
+     * JavaFX scene holds the GUI
+     */
     private Scene scene;
+    /**
+     * Parent class holds the FXMLLoader to load fxml file
+     */
     private Parent root;
+    /**
+     * JavaFX buttons.
+     * addToOrderButton adds selected properties to the shopping basket.
+     * backButton navigates back the main menu GUI.
+     */
     @FXML
     private Button addToOrderButton, backButton;
-
+    /**
+     * JavaFX checkboxes for different add-ons to the coffee.
+     */
     @FXML
     private CheckBox caramelCbox, irishCbox, mochaCbox, sweetCreamCBox, vanillaCbox;
-
+    /**
+     * JavaFX radiobuttons for the different cup sizes.
+     */
     @FXML
     private RadioButton grandeRB, shortRB, ventiRB, tallRB;
-
+    /**
+     * JavaFX combobox for the quantity of coffees.
+     */
     @FXML
     private ComboBox<Integer> quantityCombobox;
-
+    /**
+     * JavaFX toggle group for the cup size radiobuttons.
+     */
     @FXML
     private ToggleGroup sizeToggleGrp;
-
+    /**
+     * JavaFX GridPane for the GUI.
+     */
     @FXML
     private GridPane coffeeGrid;
 
 //    @FXML
 //    private HBox sizeGrid;
-
+    /**
+     * JavaFX BorderPane for the GUI.
+     */
     @FXML
     private BorderPane coffeeBorderPane;
-
+    /**
+     * JavaFX TextField that displays the subtotal for the coffee.
+     */
     @FXML
     private TextField subtotalTF;
+    /**
+     * Quantity array that only allows the user to select up to 4 coffees.
+     */
     private final Integer[] QUANTITY = {1,2,3,4};
+    /**
+     * ObservableList for the quantity of coffees.
+     */
     private final ObservableList<Integer> QUANTITY_LIST= FXCollections.observableArrayList(QUANTITY);
 
+    /**
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onAddToOrderClicked(ActionEvent event) throws IOException {
 

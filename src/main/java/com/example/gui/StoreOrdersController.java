@@ -26,7 +26,7 @@ import java.util.ResourceBundle;
 
 /**
  * Controller class for store orders.
- * Holds event handlers for store orders.
+ * Holds event handlers for Store Orders GUI.
  * @author William Barrese, Andy Nguyen
  */
 public class StoreOrdersController implements Initializable {
@@ -46,7 +46,7 @@ public class StoreOrdersController implements Initializable {
      * JavaFX buttons.
      * cancelOrderButton removes the order from the store orders.
      * exportOrderButton allows the user to export the order to a file.
-     * backButton navigates back to the main menu.
+     * backButton navigates back to the main menu GUI.
      */
     @FXML
     private Button cancelOrderButton, exportOrderButton, backButton;
@@ -159,7 +159,7 @@ public class StoreOrdersController implements Initializable {
      *Event handler for the Back to Menu button.
      * Redirects the user back the main menu.
      * @param event
-     * @exception IOException
+     * @throws IOException
      */
     @FXML
     void onBackButtonClicked(ActionEvent event) throws IOException {

@@ -22,8 +22,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * Controller class for the Ordering Basket
- * Holds event handlers for the Ordering Basket GUI
+ * Controller class for the Ordering Basket.
+ * Holds event handlers for the Ordering Basket GUI.
  * @author William Barrese, Andy Nguyen
  */
 public class OrderBasketController implements Initializable{
@@ -52,7 +52,7 @@ public class OrderBasketController implements Initializable{
      *JavaFX buttons.
      * placeOrderButton sends the items in the shopping basket to the Store Orders.
      * removeItemButton removes selected items from the shopping basket.
-     * backButton navigates the stage back to the MainController GUI.
+     * backButton navigates the stage back to the main menu GUI.
      */
     @FXML
     private Button placeOrderButton, removeItemButton, backButton;
@@ -117,7 +117,7 @@ public class OrderBasketController implements Initializable{
      *Event handler for the Back to Menu button.
      * Redirects the user back the main menu.
      * @param event
-     * @exception IOException
+     * @throws IOException
      */
     @FXML
     void onBackButtonClicked(ActionEvent event) throws IOException {
