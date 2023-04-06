@@ -1,5 +1,7 @@
 package com.example.gui;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +23,9 @@ public class OrderBasketController{
     private Scene scene;
     private Parent root;
     @FXML
-    private ListView<?> ordersListView;
+    private ListView<String> ordersListView;
+    private final String ITEM[] = {};
+    private final ObservableList<String> ITEM_LIST = FXCollections.observableArrayList(ITEM);
 
     @FXML
     private Button placeOrderButton, removeItemButton, backButton;
@@ -36,7 +40,8 @@ public class OrderBasketController{
 
     @FXML
     void onRemoveItemClicked(ActionEvent event) {
-
+        String selectedItem = ordersListView.getSelectionModel().getSelectedItem();
+        ITEM_LIST.remove(selectedItem);
     }
     @FXML
     void onBackButtonClicked(ActionEvent event) throws IOException {
