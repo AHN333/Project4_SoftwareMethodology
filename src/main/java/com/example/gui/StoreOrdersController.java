@@ -20,6 +20,7 @@ import model.Order;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -43,21 +44,26 @@ public class StoreOrdersController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         ObservableList<Integer> indices = FXCollections.observableArrayList();
-        for(int i = 0; i < MainController.CURRENT_ORDER.getOrderNumber()-1; i++){
-            indices.add(i);
+        for (Order order: MainController.FINALIZED_ORDERS) {
+            indices.add(order.getOrderNumber());
         }
         orderNumCombobox.setItems(indices);
     }
 
     @FXML
     void onCancelOrderClicked(ActionEvent event) {
-
+        if(orderNumCombobox.getValue() != null){
+            int orderNum = orderNumCombobox.getValue();
+            MainController.FINALIZED_ORDERS.removeIf(order -> order.getOrderNumber()==orderNum);
+            storeOrdersListView.setItems(FXCollections.observableArrayList());
+            totalTF.setText("");
+        }
     }
 
     @FXML
     void onOrderSelected(ActionEvent event){
-        int index = orderNumCombobox.getValue();
-        Order order = MainController.FINALIZED_ORDERS.get(index);
+        int orderNum = orderNumCombobox.getValue();
+        Order order = MainController.FINALIZED_ORDERS.stream().filter(ord -> ord.getOrderNumber()==orderNum).findAny().orElseThrow();
         updateList(order);
     }
 
@@ -68,7 +74,31 @@ public class StoreOrdersController implements Initializable {
 
     @FXML
     void onExportOrderClicked(ActionEvent event) {
-        FileChooser fileChooser = new FileChooser();
+        if(orderNumCombobox.getValue() != null) {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Export order");
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
+            File selectedFile = fileChooser.showSaveDialog(stage);
+//        selectedFile.
+            try {
+                PrintWriter writer;
+                writer = new PrintWriter(selectedFile);
+                String content = "";
+                Order selectedOrder = MainController.FINALIZED_ORDERS.stream().filter(order -> order.getOrderNumber() == orderNumCombobox.getValue()).findAny().orElseThrow();
+                double sub = 0.0;
+                for (MenuItem item : selectedOrder.getMenuItems()) {
+                    sub += item.itemPrice();
+                    content += item.toString() + "\t " + Math.round(item.itemPrice() * 100.0)/100.0 + "\n";
+                }
+                content += "Sub: " + Math.round(sub * 100.0)/100.0 + "\n";
+                content += "Tax: " + Math.round((MenuItem.TAX * sub)*100.0)/100.0 + "\n";
+                content += "Total: " + Math.round(selectedOrder.getTotal()*100.0)/100.0 +"\n";
+                writer.println(content);
+                writer.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
     @FXML
     void onBackButtonClicked(ActionEvent event) throws IOException {

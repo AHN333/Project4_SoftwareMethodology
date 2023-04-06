@@ -62,7 +62,7 @@ public class OrderCoffeeController implements Initializable {
     @FXML
     void onAddToOrderClicked(ActionEvent event) throws IOException {
 
-        if(sizeToggleGrp.getSelectedToggle() != null) {
+        if(sizeToggleGrp.getSelectedToggle() != null || quantityCombobox.getValue() != null) {
             ArrayList<String> addons = new ArrayList<>();
             if(caramelCbox.isSelected()) addons.add("Caramel");
             if(sweetCreamCBox.isSelected()) addons.add("Sweet Cream");
@@ -74,6 +74,7 @@ public class OrderCoffeeController implements Initializable {
 
             MainController.CURRENT_ORDER.add(coffee);
         }else{
+            //If any of above are null skip
             return;
         }
 
