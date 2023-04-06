@@ -157,11 +157,4 @@ public class OrderDonutController implements Initializable {
         listViewCart.setItems(tempList);
     }
 
-
-    void getSelected(ActionEvent actionEvent){ // want to change listview when different combobox item is selected
-        String selected = donutTypeCombobox.getSelectionModel().getSelectedItem().toString();
-        if (selected =="Yeast Donut"){
-            listViewFlavors.setItems(YEAST_FLAVOR_LIST);
-        }
-    }
 }
