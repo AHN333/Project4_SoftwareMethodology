@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"com.example.project4","l":"com.group9.cafe"},{"m":"com.example.project4","l":"com.group9.model"}];updateSearchResults();
