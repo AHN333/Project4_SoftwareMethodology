@@ -99,7 +99,8 @@ public class OrderCoffeeController implements Initializable {
     private final ObservableList<Integer> QUANTITY_LIST= FXCollections.observableArrayList(QUANTITY);
 
     /**
-     *
+     *Event Handler for add to order button.
+     * Sends the selected coffee properties to the shopping basket.
      * @param event
      * @throws IOException
      */
@@ -131,6 +132,13 @@ public class OrderCoffeeController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
+    /**
+     * Event handler for the Back to Menu button.
+     * Redirects the user back the main menu.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void onBackButtonClicked(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("main-view.fxml"));
@@ -140,6 +148,11 @@ public class OrderCoffeeController implements Initializable {
         stage.show();
     }
 
+    /**
+     * JavaFX Initializable method to update the subtotal real-time.
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         quantityCombobox.setItems(QUANTITY_LIST);
@@ -172,6 +185,9 @@ public class OrderCoffeeController implements Initializable {
         }
     }
 
+    /**
+     * Method to calculate the subtotal based on the selected coffee properties.
+     */
     private void calcSub(){
         try{
             double sub = 0.0;
