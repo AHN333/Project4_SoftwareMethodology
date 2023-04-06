@@ -1,8 +1,11 @@
 package com.example.gui;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,11 +15,15 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import model.MenuItem;
+import model.Order;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class StoreOrdersController {
+public class StoreOrdersController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -24,17 +31,39 @@ public class StoreOrdersController {
     private Button cancelOrderButton, exportOrderButton, backButton;
 
     @FXML
-    private ComboBox<?> orderNumCombobox;
+    private ComboBox<Integer> orderNumCombobox;
     @FXML
-    private ListView<?> storeOrdersListView;
+    private ListView<MenuItem> storeOrdersListView;
 
     @FXML
     private TextField totalTF;
 
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        ObservableList<Integer> indices = FXCollections.observableArrayList();
+        for(int i = 0; i < MainController.CURRENT_ORDER.getOrderNumber()-1; i++){
+            indices.add(i);
+        }
+        orderNumCombobox.setItems(indices);
+    }
+
     @FXML
     void onCancelOrderClicked(ActionEvent event) {
 
+    }
+
+    @FXML
+    void onOrderSelected(ActionEvent event){
+        int index = orderNumCombobox.getValue();
+        Order order = MainController.FINALIZED_ORDERS.get(index);
+        updateList(order);
+    }
+
+    private void updateList(Order order){
+        storeOrdersListView.setItems(FXCollections.observableArrayList(order.getMenuItems()));
+        totalTF.setText(Math.round(order.getTotal()*100.0)/100.0 +"");
     }
 
     @FXML

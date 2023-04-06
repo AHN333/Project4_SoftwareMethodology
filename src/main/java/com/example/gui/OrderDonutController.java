@@ -3,6 +3,7 @@ package com.example.gui;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,11 +18,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import model.Donut;
+import model.MenuItem;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class OrderDonutController implements Initializable {
@@ -49,8 +53,8 @@ public class OrderDonutController implements Initializable {
     private ObservableList<String> YEAST_FLAVOR_LIST = FXCollections.observableArrayList(YEAST_FLAVORS);
     private ObservableList<String> CAKE_FLAVOR_LIST = FXCollections.observableArrayList(CAKE_FLAVORS);
     private ObservableList<String> HOLE_FLAVOR_LIST = FXCollections.observableArrayList(HOLE_FLAVORS);
-    private ArrayList<String> item = new ArrayList();
-    private ObservableList<String> CART_LIST = FXCollections.observableArrayList(item);
+    private ArrayList<MenuItem> item = new ArrayList();
+    private ObservableList<MenuItem> CART_LIST = FXCollections.observableList(item);
 
     private final String[] DONUT_TYPES = {"Yeast Donut", "Cake Donut", "Donut Hole"};
     private final ObservableList<String> DONUT_TYPE_LIST = FXCollections.observableArrayList(DONUT_TYPES);
@@ -75,25 +79,33 @@ public class OrderDonutController implements Initializable {
     @FXML
     void onAddToListClicked(ActionEvent event) {
         String selectedItem = listViewFlavors.getSelectionModel().getSelectedItem();
-        if (selectedItem != null) {
+        int quantity = quantityCombobox.getSelectionModel().getSelectedItem();
+        if (selectedItem != null && quantity > 0) {
             if (donutTypeCombobox.getValue().equals("Yeast Donut")) {
                 listViewFlavors.setItems(YEAST_FLAVOR_LIST);
                 YEAST_FLAVOR_LIST.remove(selectedItem);
-                CART_LIST.add(selectedItem);
+                CART_LIST.add(new Donut(selectedItem, "Yeast Donut", quantity));
             } else if ((donutTypeCombobox.getValue().equals("Cake Donut"))) {
                 listViewFlavors.setItems(CAKE_FLAVOR_LIST);
                 CAKE_FLAVOR_LIST.remove(selectedItem);
-                CART_LIST.add(selectedItem);
+                CART_LIST.add(new Donut(selectedItem, "Cake Donut", quantity));
             } else if ((donutTypeCombobox.getValue().equals("Donut Hole"))) {
                 listViewFlavors.setItems(HOLE_FLAVOR_LIST);
                 HOLE_FLAVOR_LIST.remove(selectedItem);
-                CART_LIST.add(selectedItem);
+                CART_LIST.add(new Donut(selectedItem, "Donut Hole", quantity));
             }
         }
+        updateList();
     }
 
     @FXML
     void onAddToOrderClicked(ActionEvent event) throws IOException {
+
+        //Add to full order
+        for(MenuItem s : CART_LIST){
+            MainController.CURRENT_ORDER.add(s);
+        }
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("order-basket-view.fxml"));
         Parent root = loader.load();
@@ -101,19 +113,17 @@ public class OrderDonutController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
-
-
     }
 
     @FXML
     void onRemoveFromListClicked(ActionEvent event) {
         String selectedItem = listViewCart.getSelectionModel().getSelectedItem();
-        if (selectedItem != null)
-        YEAST_FLAVOR_LIST.add(selectedItem);
-        CAKE_FLAVOR_LIST.add(selectedItem);
-        HOLE_FLAVOR_LIST.add(selectedItem);
-        CART_LIST.remove(selectedItem);
+        if (selectedItem != null) {
+            YEAST_FLAVOR_LIST.add(selectedItem);
+            CAKE_FLAVOR_LIST.add(selectedItem);
+            HOLE_FLAVOR_LIST.add(selectedItem);
+            CART_LIST.remove(selectedItem);
+        }
     }
     @FXML
     void onBackButtonClicked(ActionEvent event) throws IOException {
@@ -128,7 +138,19 @@ public class OrderDonutController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         donutTypeCombobox.setItems(DONUT_TYPE_LIST);
         quantityCombobox.setItems(QUANTITY_LIST);
-        listViewCart.setItems(CART_LIST);
+        updateList();
+    }
+
+    private void updateList(){
+        ObservableList<String> tempList = FXCollections.observableArrayList();
+        double sub = 0.0;
+        for (MenuItem s : CART_LIST){
+            Donut donut = (Donut) s;
+            sub += s.itemPrice();
+            tempList.add(donut.getFlavor() + " " + donut.getType() + "\tx" + donut.getQuantity());
+        }
+        donutSubtotalTF.setText(Math.round(sub * 100.0)/100.0 + "");
+        listViewCart.setItems(tempList);
     }
 
 
