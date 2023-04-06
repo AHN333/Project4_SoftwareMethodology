@@ -163,7 +163,7 @@ public class OrderDonutController implements Initializable {
         double sub = 0.0;
         for (MenuItem s : CART_LIST){
 //            Donut donut = (Donut) s;
-//            sub += s.itemPrice();
+            sub += s.itemPrice();
 //            tempList.add(donut.getFlavor() + " " + donut.getType() + "\tx" + donut.getQuantity());
             tempList.add(s);
         }
