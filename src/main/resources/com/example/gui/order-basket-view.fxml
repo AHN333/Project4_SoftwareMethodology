@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.OrderBasketController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.OrderBasketController">
    <children>
       <Label contentDisplay="TOP" text="Ordering Basket">
          <font>
@@ -26,7 +26,7 @@
             <Insets bottom="50.0" />
          </padding>
       </Label>
-      <HBox prefHeight="184.0" prefWidth="600.0" spacing="50.0">
+      <HBox prefHeight="184.0" prefWidth="600.0" spacing="50.0" style="-fx-background-color: pink;">
          <children>
             <ListView fx:id="ordersListView" prefHeight="184.0" prefWidth="392.0">
                <HBox.margin>
@@ -54,7 +54,7 @@
             </GridPane>
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0" style="-fx-background-color: pink;">
          <children>
             <Button fx:id="backButton" mnemonicParsing="false" onAction="#onBackButtonClicked" text="Back to Menu" />
             <Button fx:id="removeItemButton" mnemonicParsing="false" onAction="#onRemoveItemClicked" text="Remove Selected Item" />
