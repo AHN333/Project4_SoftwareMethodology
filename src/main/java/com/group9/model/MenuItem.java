@@ -44,7 +44,7 @@ public abstract class MenuItem {
      */
     public final static double TAX = 0.06625;
     /**
-     * HashMap holds cup sizes.
+     * HashMap holds cup sizes and price.
      */
     public static final HashMap<String, Double> SIZE_MAP = new HashMap<>();
     static {
@@ -55,7 +55,7 @@ public abstract class MenuItem {
     }
 
     /**
-     * HashMap holds donut types.
+     * HashMap holds donut types and price.
      */
     public static final HashMap<String, Double> DONUT_MAP = new HashMap<>();
     static {
