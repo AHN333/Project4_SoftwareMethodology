@@ -11,13 +11,18 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import model.Order;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class MainController {
     @FXML
     private Label ruCafe;
+
+    public static Order CURRENT_ORDER = new Order(1);
+    public static ArrayList<Order> FINALIZED_ORDERS = new ArrayList<>();
 
     @FXML
     private Button basketMenuButton, coffeeMenuButton, donutMenuButton, ordersMenuButton;

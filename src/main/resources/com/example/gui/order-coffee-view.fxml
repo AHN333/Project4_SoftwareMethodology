@@ -1,24 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="554.0" prefWidth="510.0" style="-fx-background-color: FFC780;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.OrderCoffeeController">
+<BorderPane fx:id="coffeeBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="554.0" prefWidth="510.0" style="-fx-background-color: FFC780;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.OrderCoffeeController">
    <top>
       <Label text="Coffee Menu" BorderPane.alignment="CENTER">
          <font>
@@ -42,7 +30,7 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </Label>
-            <HBox alignment="CENTER" prefHeight="28.0" prefWidth="510.0" spacing="25.0">
+            <HBox fx:id="sizeGrid" alignment="CENTER" prefHeight="28.0" prefWidth="510.0" spacing="25.0">
                <children>
                   <RadioButton fx:id="shortRB" mnemonicParsing="false" text="Short">
                      <toggleGroup>
@@ -54,7 +42,7 @@
                   <RadioButton fx:id="ventiRB" mnemonicParsing="false" text="Venti" toggleGroup="$sizeToggleGrp" />
                </children>
             </HBox>
-            <GridPane prefHeight="236.0" prefWidth="516.0">
+            <GridPane fx:id="coffeeGrid" prefHeight="236.0" prefWidth="516.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="178.0" minWidth="10.0" prefWidth="178.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="237.0" minWidth="10.0" prefWidth="147.0" />
