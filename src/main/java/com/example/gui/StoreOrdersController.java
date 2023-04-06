@@ -24,22 +24,57 @@ import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller class for store orders.
+ * Holds event handlers for store orders.
+ * @author William Barrese, Andy Nguyen
+ */
 public class StoreOrdersController implements Initializable {
+    /**
+     * JavaFX Stage sets the window
+     */
     private Stage stage;
+    /**
+     * JavaFX scene holds the GUI
+     */
     private Scene scene;
+    /**
+     * Parent class holds the FXMLLoader to load fxml file
+     */
     private Parent root;
+    /**
+     * JavaFX buttons.
+     * cancelOrderButton removes the order from the store orders.
+     * exportOrderButton allows the user to export the order to a file.
+     * backButton navigates back to the main menu.
+     */
     @FXML
     private Button cancelOrderButton, exportOrderButton, backButton;
-
+    /**
+     * JavaFX comboboxes.
+     * orderNumCombobox holds the different orders placed.
+     */
     @FXML
     private ComboBox<Integer> orderNumCombobox;
+    /**
+     * JavaFX ListView for menu items.
+     * storeOrdersListView holds the orders placed.
+     */
     @FXML
     private ListView<MenuItem> storeOrdersListView;
 
+    /**
+     * JavaFX TextField.
+     * totalTF displays the total price for the order.
+     */
     @FXML
     private TextField totalTF;
 
-
+    /**
+     *JavaFX Initializable method used to update the listview with the orders.
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -50,6 +85,11 @@ public class StoreOrdersController implements Initializable {
         orderNumCombobox.setItems(indices);
     }
 
+    /**
+     * Event Handler for the cancel order button.
+     * Removes the order from the store orders.
+     * @param event
+     */
     @FXML
     void onCancelOrderClicked(ActionEvent event) {
         if(orderNumCombobox.getValue() != null){
@@ -60,6 +100,11 @@ public class StoreOrdersController implements Initializable {
         }
     }
 
+    /**
+     * Event Listener for order number combobox.
+     * Tracks different orders based on the order number selected.
+     * @param event
+     */
     @FXML
     void onOrderSelected(ActionEvent event){
         int orderNum = orderNumCombobox.getValue();
@@ -67,11 +112,21 @@ public class StoreOrdersController implements Initializable {
         updateList(order);
     }
 
+    /**
+     * Method to update the listview with the order selected.
+     * Displays the total amount for that order.
+     * @param order
+     */
     private void updateList(Order order){
         storeOrdersListView.setItems(FXCollections.observableArrayList(order.getMenuItems()));
         totalTF.setText(Math.round(order.getTotal()*100.0)/100.0 +"");
     }
 
+    /**
+     * Event Handler for the export order button.
+     * Allows the user to export the current order to a file.
+     * @param event
+     */
     @FXML
     void onExportOrderClicked(ActionEvent event) {
         if(orderNumCombobox.getValue() != null) {
@@ -100,6 +155,12 @@ public class StoreOrdersController implements Initializable {
             }
         }
     }
+    /**
+     *Event handler for the Back to Menu button.
+     * Redirects the user back the main menu.
+     * @param event
+     * @exception IOException
+     */
     @FXML
     void onBackButtonClicked(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("main-view.fxml"));

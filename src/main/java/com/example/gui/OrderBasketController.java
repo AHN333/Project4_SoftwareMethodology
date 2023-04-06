@@ -90,7 +90,7 @@ public class OrderBasketController implements Initializable{
         ordersListView.setItems(tempList);
     }
     /**
-     *Event handler for placing orders.
+     *Event handler for the place order button.
      * Sends items from shopping basket to Store Orders.
      * @param event
      */

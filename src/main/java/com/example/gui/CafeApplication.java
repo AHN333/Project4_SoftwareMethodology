@@ -21,6 +21,10 @@ public class CafeApplication extends Application {
         stage.show();
     }
 
+    /**
+     * Start Cafe GUI
+     * @param args
+     */
     public static void main(String[] args) {
         launch();
     }
