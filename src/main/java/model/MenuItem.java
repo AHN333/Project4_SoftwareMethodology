@@ -10,5 +10,6 @@ public abstract class MenuItem {
     public final static double GRANDE_PRICE = 2.69;
     public final static double VENTI_PRICE = 3.09;
     public final static double ADDON_PRICE = 0.30;
+    public final static double TAX = 0.06625;
     public abstract double itemPrice(int quantity);
 }
