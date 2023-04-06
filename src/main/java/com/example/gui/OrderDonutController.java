@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
@@ -30,7 +31,7 @@ public class OrderDonutController implements Initializable {
     @FXML
     private ImageView donutImage;
     @FXML
-    private Button addToListButton, addToOrderButton, backButton;
+    private Button addToListButton, addToOrderButton, backButton, removeFromListButton;
 
     @FXML
     private ComboBox<String> donutTypeCombobox;
@@ -51,12 +52,15 @@ public class OrderDonutController implements Initializable {
     private ArrayList<String> item = new ArrayList();
     private ObservableList<String> CART_LIST = FXCollections.observableArrayList(item);
 
-    @FXML
-    private Button removeFromListButton;
     private final String[] DONUT_TYPES = {"Yeast Donut", "Cake Donut", "Donut Hole"};
     private final ObservableList<String> DONUT_TYPE_LIST = FXCollections.observableArrayList(DONUT_TYPES);
     private final Integer[] QUANTITY = {1,2,3,4,5,6,7,8,9,10,11,12};
     private final ObservableList<Integer> QUANTITY_LIST = FXCollections.observableArrayList(QUANTITY);
+
+    Image image = new Image(getClass().getResourceAsStream("yeastDonut.jpg"));
+    public void display(){
+        donutImage.setImage(image);
+    }
     @FXML
     void onAddToListClicked(ActionEvent event) {
         String selectedItem = listViewFlavors.getSelectionModel().getSelectedItem();

@@ -26,7 +26,7 @@
                <graphic>
                   <ImageView fx:id="ordersImage" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../../Desktop/pa4/orders.jpg" />
+                        <Image url="@orders.jpg" />
                      </image>
                   </ImageView>
                </graphic>
@@ -35,7 +35,7 @@
                <graphic>
                   <ImageView fx:id="basketImage" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../../Desktop/pa4/shopping.jpg" />
+                        <Image url="@cart.jpg" />
                      </image>
                   </ImageView>
                </graphic>
@@ -44,7 +44,7 @@
                <graphic>
                   <ImageView fx:id="coffeeImage" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../../Desktop/pa4/coffee.png" />
+                        <Image url="@cofee.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -53,7 +53,7 @@
                <graphic>
                   <ImageView fx:id="donutImage" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../../Desktop/pa4/donut.jpg" />
+                        <Image url="@donut.jpg" />
                      </image>
                   </ImageView>
                </graphic>
