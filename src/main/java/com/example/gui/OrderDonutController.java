@@ -66,7 +66,18 @@ public class OrderDonutController implements Initializable {
     }
 
     @FXML
-    void onAddToOrderClicked(ActionEvent event) {
+    void onAddToOrderClicked(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("order-basket-view.fxml"));
+        Parent root = loader.load();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+/*how to pass listview info between scenes?
+        OrderBasketController controller = loader.getController();
+        controller.initialize();*/
 
     }
 
@@ -94,7 +105,8 @@ public class OrderDonutController implements Initializable {
         listViewCart.setItems(CART_LIST);
     }
 
-    void getSelected(ActionEvent actionEvent){
+
+    void getSelected(ActionEvent actionEvent){ // want to change listview when different combobox item is selected
         String selected = donutTypeCombobox.getSelectionModel().getSelectedItem().toString();
         if (selected =="Yeast Donut"){
             listViewFlavors.setItems(YEAST_FLAVOR_LIST);
