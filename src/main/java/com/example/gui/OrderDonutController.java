@@ -46,7 +46,9 @@ public class OrderDonutController implements Initializable {
     private TextField donutSubtotalTF;
 
     @FXML
-    private ListView<String> listViewCart, listViewFlavors;
+    private ListView<String> listViewFlavors;
+    @FXML
+    private ListView<MenuItem> listViewCart;
     private final String[] YEAST_FLAVORS = {"Plain", "Glazed", "Chocolate Iced", "Strawberry Iced", "Boston Creme", "Jelly Filled"};
     private final String[] CAKE_FLAVORS = {"Plain", "Chocolate", "Lemon"};
     private final String[] HOLE_FLAVORS = {"Plain", "Glazed", "Chocolate"};
@@ -121,13 +123,24 @@ public class OrderDonutController implements Initializable {
 
     @FXML
     void onRemoveFromListClicked(ActionEvent event) {
-        String selectedItem = listViewCart.getSelectionModel().getSelectedItem();
+        MenuItem selectedItem = listViewCart.getSelectionModel().getSelectedItem();
         if (selectedItem != null) {
-            YEAST_FLAVOR_LIST.add(selectedItem);
-            CAKE_FLAVOR_LIST.add(selectedItem);
-            HOLE_FLAVOR_LIST.add(selectedItem);
+            YEAST_FLAVOR_LIST = FXCollections.observableArrayList(YEAST_FLAVORS);
+            CAKE_FLAVOR_LIST = FXCollections.observableArrayList(CAKE_FLAVORS);
+            HOLE_FLAVOR_LIST = FXCollections.observableArrayList(HOLE_FLAVORS);
+
+            if (donutTypeCombobox.getValue().equals("Yeast Donut")) {
+                listViewFlavors.setItems(YEAST_FLAVOR_LIST);
+            } else if ((donutTypeCombobox.getValue().equals("Cake Donut"))) {
+                listViewFlavors.setItems(CAKE_FLAVOR_LIST);
+                CAKE_FLAVOR_LIST.remove(selectedItem);
+            } else if ((donutTypeCombobox.getValue().equals("Donut Hole"))) {
+                listViewFlavors.setItems(HOLE_FLAVOR_LIST);
+            }
+
             CART_LIST.remove(selectedItem);
         }
+        updateList();
     }
     @FXML
     void onBackButtonClicked(ActionEvent event) throws IOException {
@@ -146,12 +159,13 @@ public class OrderDonutController implements Initializable {
     }
 
     private void updateList(){
-        ObservableList<String> tempList = FXCollections.observableArrayList();
+        ObservableList<MenuItem> tempList = FXCollections.observableArrayList();
         double sub = 0.0;
         for (MenuItem s : CART_LIST){
-            Donut donut = (Donut) s;
-            sub += s.itemPrice();
-            tempList.add(donut.getFlavor() + " " + donut.getType() + "\tx" + donut.getQuantity());
+//            Donut donut = (Donut) s;
+//            sub += s.itemPrice();
+//            tempList.add(donut.getFlavor() + " " + donut.getType() + "\tx" + donut.getQuantity());
+            tempList.add(s);
         }
         donutSubtotalTF.setText(Math.round(sub * 100.0)/100.0 + "");
         listViewCart.setItems(tempList);
