@@ -1,6 +1,4 @@
-package model;
-
-import javafx.collections.ObservableList;
+package com.group9.model;
 
 import java.util.*;
 
@@ -20,7 +18,7 @@ public class Order {
 
     /**
      * Order constructor assigns an order number to an order.
-     * @param orderNumber
+     * @param orderNumber Order id number
      */
     public Order(int orderNumber){
         this.orderNumber = orderNumber;
@@ -28,8 +26,8 @@ public class Order {
 
     /**
      * Order constructor with order number and ordered items.
-     * @param orderNumber
-     * @param menuItems
+     * @param orderNumber Order id number
+     * @param menuItems List of items
      */
     public Order(int orderNumber, ArrayList menuItems){
         this.orderNumber = orderNumber;
@@ -37,27 +35,12 @@ public class Order {
     }
 
     /**
-     * Adds one item to the hashmap
-     * @param item
-     * @param amount
+     * Adds one item to the order
+     * @param item Item to be added
      */
     public void add(MenuItem item){
         this.menuItems.add(item);
     }
-
-    public void addDonut(String type, String flavor, int amount){
-        this.menuItems.add(new Donut(type,flavor,amount));
-    }
-
-//    public String getDisplayString(MenuItem item){
-//        String disp = "";
-//        if(item instanceof Coffee){
-//            disp = ((Coffee) item).getCupSize();
-//        } else if (item instanceof Donut) {
-//            disp = ((Donut) item).flavor +" "+ ((Donut) item).type;
-//        }
-//        return disp + "\t x" + this.menuItems.get(item);
-//    }
 
     /**
      * Removes entire quantity of selectedItem
@@ -77,7 +60,7 @@ public class Order {
 
     /**
      * Getter method to get total price of an order.
-     * @return
+     * @return Total price of order
      */
     public double getTotal(){
         double sub = 0.0;

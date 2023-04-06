@@ -1,9 +1,7 @@
-package com.example.gui;
+package com.group9.cafe;
 
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.ObservableMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,14 +16,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import model.Donut;
-import model.MenuItem;
+import com.group9.model.Donut;
+import com.group9.model.MenuItem;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 
 /**
@@ -259,8 +255,8 @@ public class OrderDonutController implements Initializable {
 
     /**
      * JavaFX Initializable method to update the subtotal. Populates the donut type ComboBox and quantity ComboBox.
-     * @param url
-     * @param resourceBundle
+     * @param url Auto-generated url for javafx
+     * @param resourceBundle Auto-generated resource bundle for javafx
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

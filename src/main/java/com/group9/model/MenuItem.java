@@ -1,4 +1,4 @@
-package model;
+package com.group9.model;
 
 import java.util.HashMap;
 
@@ -71,7 +71,7 @@ public abstract class MenuItem {
 
     /**
      * Constructor with quantity defined.
-     * @param quantity
+     * @param quantity Amount of this item
      */
     public MenuItem(int quantity){
         this.quantity = quantity;
@@ -79,7 +79,7 @@ public abstract class MenuItem {
 
     /**
      * Getter method for quantity.
-     * @return
+     * @return Amount of this item
      */
     public int getQuantity() {
         return quantity;
@@ -87,7 +87,7 @@ public abstract class MenuItem {
 
     /**
      * Abstract method for item price.
-     * @return
+     * @return Price of menu item.
      */
     public abstract double itemPrice();
 }

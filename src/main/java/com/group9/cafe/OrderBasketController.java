@@ -1,4 +1,4 @@
-package com.example.gui;
+package com.group9.cafe;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,11 +11,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.Menu;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.MenuItem;
-import model.Order;
+import com.group9.model.MenuItem;
+import com.group9.model.Order;
 
 import java.io.IOException;
 import java.net.URL;
@@ -66,8 +65,8 @@ public class OrderBasketController implements Initializable{
     private TextField subtotalTF, taxTF, totalTF;
     /**
      *JavaFX Initializable method used to update the shopping basket.
-     * @param url
-     * @param resourceBundle
+     * @param url Auto-generated url for javafx
+     * @param resourceBundle Auto-generated resource bundle for javafx
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
