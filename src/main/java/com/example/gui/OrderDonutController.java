@@ -79,6 +79,10 @@ public class OrderDonutController implements Initializable {
     @FXML
     void onAddToListClicked(ActionEvent event) {
         String selectedItem = listViewFlavors.getSelectionModel().getSelectedItem();
+        if (quantityCombobox.getSelectionModel().getSelectedItem() == null){
+            return;
+            // If the combobox is null just skip
+        }
         int quantity = quantityCombobox.getSelectionModel().getSelectedItem();
         if (selectedItem != null && quantity > 0) {
             if (donutTypeCombobox.getValue().equals("Yeast Donut")) {
