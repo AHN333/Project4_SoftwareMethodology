@@ -1,4 +1,4 @@
-package com.example.gui;
+package com.group9.cafe;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -23,7 +23,7 @@ public class CafeApplication extends Application {
 
     /**
      * Start Cafe GUI
-     * @param args
+     * @param args Command line arguments
      */
     public static void main(String[] args) {
         launch();

@@ -1,4 +1,4 @@
-package model;
+package com.group9.model;
 
 import java.util.ArrayList;
 
@@ -18,9 +18,9 @@ public class Coffee extends MenuItem {
 
     /**
      * Coffee constructor with cup size, add-ons, and quantity.
-     * @param cupSize
-     * @param addOns
-     * @param quantity
+     * @param cupSize Cupsize, short, venti etc...
+     * @param addOns List of addons
+     * @param quantity Amount of cups of this coffee being added
      */
     public Coffee(String cupSize, ArrayList addOns, int quantity){
         super(quantity);
@@ -34,7 +34,7 @@ public class Coffee extends MenuItem {
      */
     @Override
     public double itemPrice() {
-        double price = MenuItem.SIZE_MAP.get(this.cupSize.toLowerCase()) + (this.addOns.size() * MenuItem.ADDON_PRICE);
+        double price = SIZE_MAP.get(this.cupSize.toLowerCase()) + (this.addOns.size() * ADDON_PRICE);
         return price * this.quantity;
     }
 
@@ -48,7 +48,7 @@ public class Coffee extends MenuItem {
 
     /**
      * ToString method for coffee size, add-ons, and quantity.
-     * @return
+     * @return String displayed in GUI for coffee menu items
      */
     @Override
     public String toString() {

@@ -1,4 +1,4 @@
-package com.example.gui;
+package com.group9.cafe;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,13 +11,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import model.Coffee;
-import model.MenuItem;
+import com.group9.model.Coffee;
+import com.group9.model.MenuItem;
 
 import java.io.IOException;
 import java.net.URL;
@@ -150,8 +148,8 @@ public class OrderCoffeeController implements Initializable {
 
     /**
      * JavaFX Initializable method to update the subtotal real-time.
-     * @param url
-     * @param resourceBundle
+     * @param url Auto-generated url for javafx
+     * @param resourceBundle Auto-generated resource bundle for javafx
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

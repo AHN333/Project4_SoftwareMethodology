@@ -1,4 +1,4 @@
-package model;
+package com.group9.model;
 
 /**
  * Donut class for donut types and flavors.
@@ -16,9 +16,9 @@ public class Donut extends MenuItem{
 
     /**
      * Constructor for donut with flavor, type, and quantity.
-     * @param flavor
-     * @param type
-     * @param quantity
+     * @param flavor Flavor of donut
+     * @param type Type of donuts
+     * @param quantity Amount of donuts
      */
     public Donut(String flavor, String type, int quantity){
         super(quantity);
@@ -38,7 +38,7 @@ public class Donut extends MenuItem{
 
     /**
      * Getter method for donut flavor.
-     * @return
+     * @return flavor of donut
      */
     public String getFlavor() {
         return flavor;
@@ -46,7 +46,7 @@ public class Donut extends MenuItem{
 
     /**
      * Getter method for donut type.
-     * @return
+     * @return Type of donut
      */
     public String getType() {
         return type;
@@ -54,7 +54,7 @@ public class Donut extends MenuItem{
 
     /**
      * ToString method for donut flavor, type, and quantity.
-     * @return
+     * @return String used by GUI to display a donut menu item
      */
     @Override
     public String toString() {

@@ -1,4 +1,4 @@
-package com.example.gui;
+package com.group9.cafe;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,8 +15,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import model.MenuItem;
-import model.Order;
+import com.group9.model.MenuItem;
+import com.group9.model.Order;
 
 import java.io.File;
 import java.io.IOException;
@@ -72,8 +72,8 @@ public class StoreOrdersController implements Initializable {
 
     /**
      *JavaFX Initializable method used to update the listview with the orders.
-     * @param url
-     * @param resourceBundle
+     * @param url Auto-generated url for javafx
+     * @param resourceBundle Auto-generated resource bundle for javafx
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
