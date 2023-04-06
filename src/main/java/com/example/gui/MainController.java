@@ -20,8 +20,9 @@ public class MainController {
     private Label ruCafe;
 
     @FXML
-    private ImageView basketMenuButton, coffeeMenuButton, donutMenuButton, ordersMenuButton;
-
+    private Button basketMenuButton, coffeeMenuButton, donutMenuButton, ordersMenuButton;
+    @FXML
+    private ImageView donutImage, coffeeImage, basketImage, ordersImage;
 
     private Stage stage;
     private Scene scene;
@@ -62,5 +63,7 @@ public class MainController {
         stage.setScene(scene);
         stage.show();
     }
+
+
 
 }
