@@ -21,25 +21,61 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller class for the Ordering Basket
+ * Holds event handlers for the Ordering Basket GUI
+ * @author William Barrese, Andy Nguyen
+ */
 public class OrderBasketController implements Initializable{
+    /**
+     * JavaFX Stage sets the window
+     */
     private Stage stage;
+    /**
+     * JavaFX scene holds the GUI
+     */
     private Scene scene;
+    /**
+     * Parent class holds the FXMLLoader to load fxml file
+     */
     private Parent root;
+    /**
+     * ListView for the orders placed
+     */
     @FXML
     private ListView<MenuItem> ordersListView;
+    /**
+     *Array of Strings that hold the menu items
+     */
     private final String ITEM[] = {};
-
+    /**
+     *JavaFX buttons.
+     * placeOrderButton sends the items in the shopping basket to the Store Orders.
+     * removeItemButton removes selected items from the shopping basket.
+     * backButton navigates the stage back to the MainController GUI.
+     */
     @FXML
     private Button placeOrderButton, removeItemButton, backButton;
-
+    /**
+     *JavaFX Textfields.
+     * subtotalTF displays the subtotal for the ordered items from the shopping basket.
+     * taxTF displays the tax amount for the ordered items from the shopping basket.
+     * totalTF displays the sum of the subttotal and tax TextFields.
+     */
     @FXML
     private TextField subtotalTF, taxTF, totalTF;
-
+    /**
+     *JavaFX Initializable method used to update the shopping basket.
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         updateList();
     }
-
+    /**
+     *Method to update the shopping basket.
+     */
     private void updateList(){
         double sub =0.0;
         ObservableList<MenuItem> tempList = FXCollections.observableArrayList();
@@ -53,7 +89,11 @@ public class OrderBasketController implements Initializable{
         totalTF.setText(Math.round((tax + sub) * 100.0)/100.0 + "");
         ordersListView.setItems(tempList);
     }
-
+    /**
+     *Event handler for placing orders.
+     * Sends items from shopping basket to Store Orders.
+     * @param event
+     */
     @FXML
     void onPlaceOrderClicked(ActionEvent event) {
         int currentOrderIndex = MainController.CURRENT_ORDER.getOrderNumber();
@@ -61,7 +101,11 @@ public class OrderBasketController implements Initializable{
         MainController.CURRENT_ORDER = new Order(currentOrderIndex+1);
         updateList();
     }
-
+    /**
+     *Event handler for remove item button.
+     * Removes selected item from shopping basket.
+     * @param event
+     */
     @FXML
     void onRemoveItemClicked(ActionEvent event) {
         MenuItem selectedItem = ordersListView.getSelectionModel().getSelectedItem();
@@ -69,6 +113,12 @@ public class OrderBasketController implements Initializable{
         MainController.CURRENT_ORDER.remove(selectedItem);
         updateList();
     }
+    /**
+     *Event handler for the Back to Menu button.
+     * Redirects the user back the main menu.
+     * @param event
+     * @exception IOException
+     */
     @FXML
     void onBackButtonClicked(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("main-view.fxml"));

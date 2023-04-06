@@ -7,6 +7,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Cafe Application class
+ * @author Wiliam Barrese, Andy Nguyen
+ */
 public class CafeApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
